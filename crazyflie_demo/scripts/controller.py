@@ -45,13 +45,12 @@ class Controller():
                 if i == 2 and data.buttons[i] == 1 and self._takeoff != None:
                     self._takeoff()
                 if i == 4 and data.buttons[i] == 1:
-                    value = int(rospy.get_param("ring/headlightEnable"))
-                    if value == 0:
-                        rospy.set_param("ring/headlightEnable", 1)
+                    value = int(rospy.get_param("Manual_Thrust/BaseThrust"))
+                    if value > 0.0:
+                        rospy.set_param("Manual_Thrust/BaseThrust", 0.0)
                     else:
-                        rospy.set_param("ring/headlightEnable", 0)
-                    self._update_params(["ring/headlightEnable"])
-                    print(not value)
+                        rospy.set_param("Manual_Thrust/BaseThrust", 1.0)
+                    self._update_params(["Manual_Thrust/BaseThrust"])                    
 
         self._buttons = data.buttons
 

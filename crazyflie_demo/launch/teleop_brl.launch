@@ -39,7 +39,8 @@
 
     <node name="tf_fake" pkg="crazyflie_demo" type="fake_crazyflie_tf.py" />
 
-     <node pkg="tf" type="static_transform_publisher" name="baselink_broadcaster" args="0 0 0 0 0 0 1 $(arg frame) /crazyflie/base_link 100" />
+    <node pkg="tf" type="static_transform_publisher" name="baselink_broadcaster" args="0 0 0 0 0 0 1 $(arg frame) /crazyflie/base_link 100" />
+
   </group>
 
   <!-- run vicon bridge -->
